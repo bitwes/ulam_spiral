@@ -18,6 +18,11 @@ function doIt(){
 class UlamSpiralMaker {
 	constructor(size, start) {
 		this.size = size;
+		// Dang thing only works with odd numbers and I'm tired of trying to
+		// understand why.  So we just always use the next highest odd.
+		if(size % 2 == 0){
+			this.size ++
+		}
 		this.start = start;
 		this.center = (this.size -1) / 2
 		this.filler = '..'
@@ -40,9 +45,6 @@ class UlamSpiralMaker {
 					var cell = document.createElement("td");
 					cell.innerHTML = this.filler
 					cell.align="center"
-					//cell.setAttribute("border", "1");
-					//var cellText = document.createTextNode(j+"/"+i);
-					//cell.appendChild(cellText);
 					row.appendChild(cell);
 				}
 				tblBody.appendChild(row);
